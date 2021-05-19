@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/SunandanBose/Vaccination-Slot-Finder#readme",
   "dependencies": {
-    "node-cron": "^2.0.3"
+    "node-cron": "^2.0.3",
+    "nodemailer": "^6.6.0"
   }
 }

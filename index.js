@@ -1,5 +1,6 @@
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 const cron = require('node-cron');
+const nodemailer = require('nodemailer')
 
 function getCenters(){
     var data = "";
@@ -34,7 +35,34 @@ function getCenters(){
     xhr.send(data);
 }
 
+function notify(){
+    //Allow less secure app access in gmail and disable 2FA
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'youremail@gmail.com',
+            pass: 'yourpassword'
+        }
+      });
+      
+      var mailOptions = {
+        from: 'youremail@gmail.com',
+        to: 'myfriend@gmail.com',
+        subject: 'Sending Email using Node.js',
+        text: 'That was easy!'
+      };
+      
+      transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('Email sent: ' + info.response);
+        }
+      });
+}
+
 cron.schedule("* * * * *", function(){
     getCenters()
     console.log("Running cron job every minute");
 })
+
