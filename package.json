@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/SunandanBose/Vaccination-Slot-Finder/issues"
   },
-  "homepage": "https://github.com/SunandanBose/Vaccination-Slot-Finder#readme"
+  "homepage": "https://github.com/SunandanBose/Vaccination-Slot-Finder#readme",
+  "dependencies": {
+    "node-cron": "^2.0.3"
+  }
 }
