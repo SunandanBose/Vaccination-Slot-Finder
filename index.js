@@ -2,9 +2,15 @@ var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 const cron = require('node-cron');
 const nodemailer = require('nodemailer')
 
+function getDate(){
+    var today = new Date();
+    return today.getDate() + "-" + (today.getMonth() + 1) + "-" + today.getFullYear();
+}
+
 function getCenters(){
     var data = "";
-
+    var today = getDate();
+    console.log("Today's date : " + today);
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
 
@@ -34,7 +40,7 @@ function getCenters(){
     } 
     });
 
-    xhr.open("GET", "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=247&date=19-05-2021");
+    xhr.open("GET", "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=247&date="+today);
 
     xhr.send(data);
 }
