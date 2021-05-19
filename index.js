@@ -19,10 +19,14 @@ function getCenters(){
             }
         }
         if(centerFor18.length > 0){
+            var vaccinationCenterTemplate = "";
             console.log("Available centers", centerFor18.length)
             for(let i = 0; i < centerFor18.length; i++){
                 console.log(centerFor18[i].name + " : " + centerFor18[i].sessions[0].available_capacity_dose1);
+                vaccinationCenterTemplate += "Center : " + centerFor18[i].name + " and Slots Available for 1st Dose : " +
+                                                centerFor18[i].sessions[0].available_capacity_dose1 + "\n";
             }
+            notify(vaccinationCenterTemplate)
         } else {
             console.log("No Available centers")
         }
@@ -35,7 +39,7 @@ function getCenters(){
     xhr.send(data);
 }
 
-function notify(){
+function notify(body){
     //Allow less secure app access in gmail and disable 2FA
     var transporter = nodemailer.createTransport({
         service: 'gmail',
@@ -48,8 +52,8 @@ function notify(){
       var mailOptions = {
         from: 'youremail@gmail.com',
         to: 'myfriend@gmail.com',
-        subject: 'Sending Email using Node.js',
-        text: 'That was easy!'
+        subject: 'Vaccination Slot Availability',
+        text: body
       };
       
       transporter.sendMail(mailOptions, function(error, info){
