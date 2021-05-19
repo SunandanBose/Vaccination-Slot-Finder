@@ -57,7 +57,7 @@ function notify(body){
       
       var mailOptions = {
         from: 'youremail@gmail.com',
-        to: 'myfriend@gmail.com',
+        to: 'to@gmail.com',
         subject: 'Vaccination Slot Availability',
         text: body
       };
