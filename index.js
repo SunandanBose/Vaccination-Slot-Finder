@@ -15,10 +15,17 @@ function getCenters(){
         for(let i = 0; i < centers.length; i++){
             if(centers[i].sessions[0].min_age_limit == 18 && centers[i].sessions[0].available_capacity_dose1 > 0 ){
                 centerFor18.push(centers[i])
-                console.log(centerFor18.name)
             }
-            console.log(centers[i].name)
         }
+        if(centerFor18.length > 0){
+            console.log("Available centers", centerFor18.length)
+            for(let i = 0; i < centerFor18.length; i++){
+                console.log(centerFor18[i].name + " : " + centerFor18[i].sessions[0].available_capacity_dose1);
+            }
+        } else {
+            console.log("No Available centers")
+        }
+        
     } 
     });
 
