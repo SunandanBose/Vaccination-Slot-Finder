@@ -1,0 +1,19 @@
+{
+  "name": "vaccination-slot-finder",
+  "version": "1.0.0",
+  "description": "Find vaccination slots",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SunandanBose/Vaccination-Slot-Finder.git"
+  },
+  "author": "Sunandan Bose",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SunandanBose/Vaccination-Slot-Finder/issues"
+  },
+  "homepage": "https://github.com/SunandanBose/Vaccination-Slot-Finder#readme"
+}
